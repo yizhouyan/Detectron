@@ -286,6 +286,7 @@ def test_net(
                     start_ind + num_images, det_time, misc_time, eta
                 )
             )
+            logger.info(cfg.VIS)
 
         if cfg.VIS:
             im_name = os.path.splitext(os.path.basename(entry['image']))[0]
