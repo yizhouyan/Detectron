@@ -125,7 +125,7 @@ def run_inference(
             )
 
     all_results = result_getter()
-    if check_expected_results and is_parent:
+    if check_expected_results and is_parent: #
         task_evaluation.check_expected_results(
             all_results,
             atol=cfg.EXPECTED_RESULTS_ATOL,
