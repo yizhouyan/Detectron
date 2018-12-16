@@ -208,8 +208,7 @@ def _coco_bbox_results_one_category(json_dataset, boxes, cat_id):
 
 
 def _do_detection_eval(json_dataset, res_file, output_dir):
-    save_object([json_dataset,res_file], os.path.join(output_dir,'before_evaluation.pkl'))
-
+    # save_object([json_dataset,res_file], os.path.join(output_dir,'before_evaluation.pkl'))
     coco_dt = json_dataset.COCO.loadRes(str(res_file))
     coco_eval = COCOeval(json_dataset.COCO, coco_dt, 'bbox')
     coco_eval.evaluate()
@@ -252,6 +251,7 @@ def _log_detection_eval_metrics(json_dataset, coco_eval):
         logger.info('{:.1f}'.format(100 * ap))
     logger.info('~~~~ Summary metrics ~~~~')
     coco_eval.summarize()
+    logger.info('~~~~ End Summarization ~~~~')
 
 
 def evaluate_box_proposals(
